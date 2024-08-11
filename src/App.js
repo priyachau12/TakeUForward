@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+// import "./App.css";
+// import FlashcardContainer from "./Components/FlashcardContainer.js";
+// import flashcards from "./Components/mockFlashcards";
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Flashcard Learning Tool</h1>
+//       <FlashcardContainer flashcards={flashcards} />
+//     </div>
+//   );
+// }
+
+// export default App;
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import FlashcardContainer from "./Components/FlashcardContainer";
+import AdminDashboard from "./Components/AdminDashboard";
+import flashcards from "./Components/mockFlashcards.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={<FlashcardContainer flashcards={flashcards} />}
+          />
+          <Route path="/admin" element={<AdminDashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
